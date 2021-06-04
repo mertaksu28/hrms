@@ -2,17 +2,15 @@ package javakamp.hrms.business.abstracts;
 
 import java.util.List;
 
-import javakamp.hrms.entities.concretes.User;
+import javakamp.hrms.core.entities.User;
+import javakamp.hrms.core.utulities.results.DataResult;
+import javakamp.hrms.core.utulities.results.Result;
 
 public interface UserService {
 
-	void add(User user);
+	Result add(User user);
 
-	void update(User user);
+	DataResult<User> getByEmail(String email);
 
-	void delete(User user);
-
-	User getByEmail(String email);
-
-	List<User> getAll();
+	DataResult<List<User>> getAll();
 }

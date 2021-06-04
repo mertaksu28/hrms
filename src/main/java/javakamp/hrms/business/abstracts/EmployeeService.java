@@ -2,15 +2,13 @@ package javakamp.hrms.business.abstracts;
 
 import java.util.List;
 
+import javakamp.hrms.core.utulities.results.DataResult;
+import javakamp.hrms.core.utulities.results.Result;
 import javakamp.hrms.entities.concretes.Employee;
 
 public interface EmployeeService {
 
-	void add(Employee employee);
+	Result add(Employee employee);
 
-	void update(Employee employee);
-
-	void delete(Employee employee);
-
-	List<Employee> getAll();
+	DataResult<List<Employee>> getAll();
 }

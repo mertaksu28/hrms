@@ -1,41 +1,34 @@
 package javakamp.hrms.entities.concretes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javakamp.hrms.core.entities.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee extends User{
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
-	private int id;
-
-	@Column(name = "userid")
-	private int userId;
-
-	@Column(name = "jobid")
-	private int jobId;
-
-	@Column(name = "firstname")
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name = "lastname")
+	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "identitynumber")
-	private String identityNumber;
+	@Column(name = "create_date")
+	private LocalDate createDate;
 
-	@Column(name = "dateofbirth")
-	private Date dateOfBirth;
-
+	@Column(name = "is_active")
+	private boolean isActive;
 }

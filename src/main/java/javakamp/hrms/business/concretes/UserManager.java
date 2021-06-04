@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javakamp.hrms.business.abstracts.UserService;
-import javakamp.hrms.dataAccess.abstracts.UserDao;
-import javakamp.hrms.entities.concretes.User;
+import javakamp.hrms.core.dataAccess.abstracts.UserDao;
+import javakamp.hrms.core.entities.User;
+import javakamp.hrms.core.utulities.results.DataResult;
+import javakamp.hrms.core.utulities.results.Result;
+import javakamp.hrms.core.utulities.results.SuccessResult;
 
 @Service
 public class UserManager implements UserService {
@@ -21,28 +24,22 @@ public class UserManager implements UserService {
 	}
 
 	@Override
-	public List<User> getAll() {
-		return this.userDao.findAll();
+	public Result add(User user) {
+		userDao.save(user);
+		return new SuccessResult("Eklendi");
 	}
 
 	@Override
-	public void add(User user) {
-		this.userDao.save(user);
-	}
-
-	@Override
-	public void update(User user) {
-		this.userDao.save(user);
-	}
-
-	@Override
-	public void delete(User user) {
-		this.userDao.delete(user);
-	}
-
-	@Override
-	public User getByEmail(String email) {
+	public DataResult<User> getByEmail(String email) {
+		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public DataResult<List<User>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
