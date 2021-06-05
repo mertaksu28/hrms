@@ -11,4 +11,5 @@ public interface EmployeeService {
 	Result add(Employee employee);
 
 	DataResult<List<Employee>> getAll();
+	DataResult<List<Employee>> findById(int userId);
 }
