@@ -2,11 +2,14 @@ package javakamp.hrms.entities.concretes;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -28,8 +31,9 @@ public class JobAdvertisement {
 	@Column(name = "employer_id")
 	private int employer_id;
 
-	@Column(name = "job_title_id")
-	private int jobTitleId;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "job_title_id")
+	private JobTitle jobTitle;
 	
 	@Column(name = "location_id")
 	private int locationId;
@@ -53,10 +57,11 @@ public class JobAdvertisement {
 	private LocalDate endApplicationDate;
 	
 	@Column(name = "create_date")
-	private LocalDate createDate;
+	private LocalDate createDate = LocalDate.now();
 	
 	@Column(name = "is_active")
 	private boolean isActive;
 
+	
 
 }

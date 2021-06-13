@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javakamp.hrms.business.abstracts.EmployeeService;
 import javakamp.hrms.core.utulities.results.DataResult;
+import javakamp.hrms.core.utulities.results.ErrorDataResult;
 import javakamp.hrms.core.utulities.results.Result;
 import javakamp.hrms.core.utulities.results.SuccessDataResult;
 import javakamp.hrms.core.utulities.results.SuccessResult;
@@ -39,10 +40,12 @@ public class EmployeeManager implements EmployeeService {
 	}
 
 	@Override
-	public DataResult<List<Employee>> findById(int userId) {
+	public DataResult<Employee> findById(int userId) {
 		var result = employeeDao.findById(userId);
-		
-		return new SuccessDataResult<List<Employee>>(result,"listelendi");
+		if (result==null) {
+			return new ErrorDataResult<>("İşveren bulunamadı");
+		}
+		return new SuccessDataResult<>(result,"İşveren görüntülendi");
 	}
 
 

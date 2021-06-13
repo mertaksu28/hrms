@@ -32,8 +32,8 @@ public class Employer extends User{
 	private String phoneNumber;
 
 	@Column(name = "create_date")
-	private LocalDate createDate;
-
+	private LocalDate createDate = LocalDate.now();
+	
 	@Column(name = "search_status")
 	private boolean searchStatus;
 

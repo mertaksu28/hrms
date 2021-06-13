@@ -44,7 +44,7 @@ public class JobCandidate extends User {
 
 	@FutureOrPresent(message = "oluşturulma tarihi bugünden önce olamaz")
 	@Column(name = "create_date")
-	private LocalDate createDate;
+	private LocalDate createDate = LocalDate.now();
 
 	@Column(name = "search_status")
 	private boolean searchStatus;

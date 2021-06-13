@@ -16,10 +16,9 @@ public class HrmsApplication {
  * Mernis Yapılmadı
  * Her kullanıcı için doğrulama yapılmadı
  * 
- * ***job title alanının add ve getall metotları yazılacak
- * ***job title name i pg adminde uniqe olacak
+
+
  * ***job advertisements tablosunun entity si yazılacak ve dao, servis, manager ve controller
  *  yazılacak
  * employer id zorunlu olur iş ilanı eklerken**
- * 
  * */

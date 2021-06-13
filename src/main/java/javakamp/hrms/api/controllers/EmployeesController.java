@@ -38,7 +38,7 @@ public class EmployeesController {
 	}
 	
 	@PostMapping("/getById")
-	public DataResult<List<Employee>> getById(int userId){
+	public DataResult<Employee> getById(int userId){
 		return employeeService.findById(userId);
 	}
 }

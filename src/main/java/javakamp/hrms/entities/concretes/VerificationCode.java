@@ -1,36 +1,40 @@
 package javakamp.hrms.entities.concretes;
 
-import java.util.List;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="job_titles")
-public class JobTitle {
-	
+@Entity
+@Table(name = "veriication_codes")
+public class VerificationCode {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="title_name")
-	private String titleName;
-	
-	@OneToOne(mappedBy = "jobTitle")
-    private JobAdvertisement jobAdvertisement;
 
-	
+	@Column(name = "user_id")
+	private int userId;
+
+	@Column(name = "code")
+	private String code;
+
+	@Column(name = "create_date")
+	private LocalDate createDate = LocalDate.now();
+
+	@Column(name = "is_verifed")
+	private boolean isVerifed;
+
 }
