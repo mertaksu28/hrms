@@ -1,7 +1,5 @@
 package javakamp.hrms.entities.concretes;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,27 +12,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "verification_codes")
-public class VerificationCode {
-
+@Table(name="locations")
+public class Location {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name="id")
 	private int id;
-
-	@Column(name = "user_id")
-	private int userId;
-
-	@Column(name = "code")
-	private String code;
-
-	@Column(name = "create_date")
-	private LocalDate createDate = LocalDate.now();
-
-	@Column(name = "is_verifed")
-	private boolean isVerifed;
+	
+	@Column(name="country_name")
+	private String countryName;
+	
+	@Column(name="city_name")
+	private String cityName;
+	
+	@Column(name="region_name")
+	private String regionName;
+	
+	@Column(name="street_address")
+	private String streetAddress;
+	
+	@Column(name="postal_code")
+	private String postalCode;
 
 }

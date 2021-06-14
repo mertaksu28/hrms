@@ -15,7 +15,9 @@ public interface UserDao extends JpaRepository<User, Integer> {
 	@Query("select u from User u where u.email = ?1")
 	User getByEmail(String email);
 	
-	@Query("select new javakamp.hrms.entities.dtos.UserLoginDto c.email, c.password From User c")
+	@Query("select new javakamp.hrms.entities.dtos.UserLoginDto"
+			+ "( c.email, c.password) "
+			+ "From User c")
 	List<UserLoginDto> getUserDto();
 
 }

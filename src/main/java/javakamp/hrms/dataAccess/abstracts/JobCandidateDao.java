@@ -6,4 +6,6 @@ import javakamp.hrms.entities.concretes.JobCandidate;
 
 public interface JobCandidateDao extends JpaRepository<JobCandidate, Integer> {
 
+	JobCandidate getById(int userId);
+	
 }

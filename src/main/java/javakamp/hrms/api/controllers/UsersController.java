@@ -3,6 +3,8 @@ package javakamp.hrms.api.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,7 +22,7 @@ import javakamp.hrms.core.utulities.results.ErrorDataResult;
 import javakamp.hrms.core.utulities.results.Result;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/users") 
 public class UsersController {
 
 	private UserService userService;
@@ -31,7 +33,7 @@ public class UsersController {
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody User user) {
+	public Result add(@RequestBody @Valid User user) {
 		return this.userService.add(user);
 	}
 
