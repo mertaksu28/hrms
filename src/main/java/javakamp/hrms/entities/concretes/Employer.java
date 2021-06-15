@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javakamp.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +38,14 @@ public class Employer extends User{
 	
 	@Column(name = "search_status")
 	private boolean searchStatus;
+	
+	@JsonIgnore
+    @Column(name="is_email_verified",columnDefinition = "boolean default false")
+	private Boolean isEmailVerified;
+    
+	@JsonIgnore
+    @Column(name="is_verified_by_emlopyee",columnDefinition = "boolean default false")
+	private Boolean isVerifiedByEmlopyee;
 
 	
 }

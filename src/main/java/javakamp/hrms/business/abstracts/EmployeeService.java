@@ -9,6 +9,8 @@ import javakamp.hrms.entities.concretes.Employee;
 public interface EmployeeService {
 
 	Result add(Employee employee);
-	DataResult<List<Employee>> getAll();
-	DataResult<Employee> findById(int userId);
+    Result update(Employee employee);
+    DataResult<Employee> findById(int userId);
+    DataResult<List<Employee>> findAll();
+	
 }

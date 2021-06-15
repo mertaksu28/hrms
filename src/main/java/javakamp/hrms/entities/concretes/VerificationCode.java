@@ -2,39 +2,44 @@ package javakamp.hrms.entities.concretes;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "verification_codes")
+@Table(name="verification_codes")
 public class VerificationCode {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@GeneratedValue(strategy =GenerationType.IDENTITY )
+	@Column(name="id")
 	private int id;
 
-	@Column(name = "user_id")
+	
 	private int userId;
-
-	@Column(name = "code")
+	@Column(name="code")
 	private String code;
-
-	@Column(name = "create_date")
-	private LocalDate createDate = LocalDate.now();
-
-	@Column(name = "is_verifed")
-	private boolean isVerifed;
-
+	@Column(name="create_date")
+	private LocalDate createDate;
+	@Column(name="is_active", columnDefinition = "boolean default false") 
+	private Boolean isActive;
+	@Column(name="is_delete")
+	private Boolean isDelete;
+	@Column(name="confirmed_date")
+	private LocalDate confirmedDate;
+	@Column(name="expired_date")
+	private LocalDate expiredDate;
+	
+	public VerificationCode(int userId, String code, LocalDate expiredDate) {
+		super();
+		this.userId = userId;
+		this.code = code;
+		this.expiredDate = expiredDate;
+	}
+	
+	
+	
 }

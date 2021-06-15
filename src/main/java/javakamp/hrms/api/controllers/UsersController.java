@@ -8,9 +8,11 @@ import javax.validation.Valid;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +41,11 @@ public class UsersController {
 
 	public DataResult<User> getById(@RequestBody int id) {
 		return this.userService.getById(id);
+	}
+	
+	@GetMapping("/getbyemail")
+	public DataResult<User> getByEmail(@RequestParam String email){
+		return this.userService.getByEmail(email);
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
