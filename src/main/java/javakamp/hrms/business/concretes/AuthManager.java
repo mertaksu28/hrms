@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javakamp.hrms.business.abstracts.AuthService;
-import javakamp.hrms.business.abstracts.EmployeeService;
 import javakamp.hrms.business.abstracts.EmployerService;
 import javakamp.hrms.business.abstracts.JobCandidateService;
 import javakamp.hrms.business.abstracts.UserService;
@@ -20,7 +19,6 @@ import javakamp.hrms.core.utulities.results.Result;
 import javakamp.hrms.core.utulities.results.SuccessDataResult;
 import javakamp.hrms.core.utulities.results.SuccessResult;
 import javakamp.hrms.core.validations.VerificationService;
-import javakamp.hrms.entities.concretes.Employee;
 import javakamp.hrms.entities.concretes.Employer;
 import javakamp.hrms.entities.concretes.JobCandidate;
 import javakamp.hrms.entities.concretes.VerificationCode;
@@ -28,9 +26,11 @@ import javakamp.hrms.entities.dtos.EmployerRegisterDto;
 import javakamp.hrms.entities.dtos.JobCandidateRegisterDto;
 import javakamp.hrms.entities.dtos.UserLoginDto;
 import lombok.var;
+
 @Service
 public class AuthManager implements AuthService {
-	
+
+
 	private EmployerService employerService;
 	private JobCandidateService jobCandidateService;
 	private UserService userService;
@@ -87,11 +87,12 @@ public class AuthManager implements AuthService {
 
 		JobCandidate jobcandidate = modelMapper.map(jobCandidateRegisterDto, JobCandidate.class);
 
-		var result = this.jobCandidateService.add(jobcandidate);
+		var result = this.jobCandidateService.add(jobcandidate); 
 
 		if (result.isSuccess()) {
 
 			this.generateVerificationCode(jobcandidate.getId());
+			return new SuccessResult("Eklendi");
 
 		}
 		return new ErrorResult(result.getMessage());

@@ -11,14 +11,15 @@ import javakamp.hrms.entities.dtos.JobCandidateRegisterDto;
 import javakamp.hrms.entities.dtos.UserLoginDto;
 
 public interface AuthService {
-	
+
+
 	Result employerRegister(EmployerRegisterDto employerRegisterDto);
 
 	Result jobCandidateRegister(JobCandidateRegisterDto jobCandidateRegisterDto);
 
 	DataResult<User> login(UserLoginDto userForLoginDto);
 
-	Result userExists(String email); 
+	Result userExists(String email);
 
 	Result verifyEmail(int user_id, String activationCode);
 

@@ -30,7 +30,7 @@ public class EmployeesController {
 
 	@GetMapping("/getall")
 	public DataResult<List<Employee>>  getAll() {
-		return employeeService.getAll();
+		return employeeService.findAll();
 	}
 	@PostMapping("/add")
 	public Result add(@RequestBody @Valid Employee employee) {

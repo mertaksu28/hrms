@@ -35,7 +35,6 @@ public class JobCandidate extends User{
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@PastOrPresent(message="doğum tarihi bugünden önce olmalıdır")
 	@Column(name = "birth_date")
 	private LocalDate birthDate;
 

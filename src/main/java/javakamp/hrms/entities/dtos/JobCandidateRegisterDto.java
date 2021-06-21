@@ -2,6 +2,12 @@ package javakamp.hrms.entities.dtos;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +25,6 @@ public class JobCandidateRegisterDto {
 	private String identificationNo;
 	private LocalDate birthDate;
 	private String phoneNumber;
-	
 	
 	
 	

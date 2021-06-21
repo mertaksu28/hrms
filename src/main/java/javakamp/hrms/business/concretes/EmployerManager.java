@@ -39,7 +39,7 @@ public class EmployerManager implements EmployerService{
 	}
 		
 		
-		
+		employer.setIsEmailVerified(false);
 		employerDao.save(employer);
 		return new SuccessResult("Eklendi");
 	}
