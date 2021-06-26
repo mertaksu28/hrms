@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javakamp.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,8 +29,10 @@ public class Employee extends User{
 	private String lastName;
 
 	@Column(name = "create_date")
+	@JsonIgnore
 	private LocalDate createDate = LocalDate.now();
 
 	@Column(name = "is_active")
-	private boolean isActive;
+	@JsonIgnore
+	private Boolean isActive;
 }

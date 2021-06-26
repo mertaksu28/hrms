@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
+@PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -42,10 +44,14 @@ public class Employer extends User{
 	@JsonIgnore
     @Column(name="is_email_verified",columnDefinition = "boolean default false")
 	private Boolean isEmailVerified;
-    
+
 	@JsonIgnore
     @Column(name="is_verified_by_emlopyee",columnDefinition = "boolean default false")
 	private Boolean isVerifiedByEmlopyee;
+	
+	@Column(name = "is_active",columnDefinition = "boolean default false")
+	@JsonIgnore
+	private Boolean isActive;
 
 	
 }

@@ -17,12 +17,10 @@ import javakamp.hrms.dataAccess.abstracts.EmployeeDao;
 import javakamp.hrms.entities.concretes.Employee;
 import lombok.var;
 
-
-
 @Service
 public class EmployeeManager implements EmployeeService{
 
-	private EmployeeDao employeeDao; 
+	private EmployeeDao employeeDao;
 
 	@Autowired
 	public EmployeeManager(EmployeeDao employeeDao) {
@@ -38,7 +36,6 @@ public class EmployeeManager implements EmployeeService{
 			return new ErrorResult("Email already exist... ");
 		}
 	
-		
 		employeeDao.save(employee);
 		return new SuccessResult();
 	}
@@ -51,7 +48,7 @@ public class EmployeeManager implements EmployeeService{
 
 	@Override
 	public DataResult<Employee> findById(int userId) {
-		var result = employeeDao.findById(userId);
+		var result = employeeDao.findById(userId).get();
 		if (result==null) {
 			return new ErrorDataResult<>("Sistem çalışanı bulunamadı");
 		}
@@ -75,6 +72,9 @@ public class EmployeeManager implements EmployeeService{
 		return true;
 		
 	}
+	
+
+	
 
 
 }

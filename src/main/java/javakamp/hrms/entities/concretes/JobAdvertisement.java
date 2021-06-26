@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +24,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "job_advertisements")
 public class JobAdvertisement {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -31,9 +32,8 @@ public class JobAdvertisement {
 	@Column(name = "employer_id")
 	private int employer_id;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "job_title_id")
-	private JobTitle jobTitle;
+	@Column(name = "job_title_id")
+	private int jobTitleId;
 	
 	@Column(name = "location_id")
 	private int locationId;
@@ -57,11 +57,11 @@ public class JobAdvertisement {
 	private LocalDate endApplicationDate;
 	
 	@Column(name = "create_date")
+	@JsonIgnore
 	private LocalDate createDate = LocalDate.now();
 	
 	@Column(name = "is_active")
-	private boolean isActive;
-
-	
+	@JsonIgnore
+	private Boolean isActive;
 
 }

@@ -9,8 +9,9 @@ import javakamp.hrms.entities.concretes.JobAdvertisement;
 
 public interface JobAdvertisementService {
 	
-	DataResult<List<JobAdvertisement>> getAll();
-	
 	Result add(JobAdvertisement jobAdvertisement);
-
+    Result update(JobAdvertisement jobAdvertisement);
+    Result delete(JobAdvertisement jobAdvertisement);
+    DataResult<JobAdvertisement> findById(int id);
+    DataResult<List<JobAdvertisement>> findAll();
 }

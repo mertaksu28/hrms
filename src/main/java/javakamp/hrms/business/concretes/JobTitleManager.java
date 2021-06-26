@@ -23,7 +23,7 @@ public class JobTitleManager implements JobTitleService {
 	}
 
 	@Override
-	public DataResult<List<JobTitle>> getAll() {
+	public DataResult<List<JobTitle>> findAll() {
 		return new SuccessDataResult<List<JobTitle>>
 		(this.jobTitleDao.findAll(), "İş Başlıkları Listelendi");
 	}
@@ -32,6 +32,18 @@ public class JobTitleManager implements JobTitleService {
 	public Result add(JobTitle jobTitle) {
 		this.jobTitleDao.save(jobTitle);
 		return new SuccessResult("İş başlığı Eklendi");
+	}
+
+	@Override
+	public Result update(JobTitle jobTitle) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result delete(JobTitle jobTitle) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

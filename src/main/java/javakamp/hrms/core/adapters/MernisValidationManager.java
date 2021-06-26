@@ -2,8 +2,11 @@ package javakamp.hrms.core.adapters;
 
 import java.time.LocalDate;
 
+import org.springframework.stereotype.Service;
+
 import javakamp.hrms.core.securities.FakeMernisHelper;
 
+@Service
 public class MernisValidationManager implements MernisValidationService {
 
 	@Override

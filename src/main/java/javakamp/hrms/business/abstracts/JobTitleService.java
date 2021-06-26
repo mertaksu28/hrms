@@ -8,8 +8,8 @@ import javakamp.hrms.entities.concretes.JobTitle;
 
 public interface JobTitleService {
 	
-	DataResult<List<JobTitle>> getAll();
-	
 	Result add(JobTitle jobTitle);
-
+    Result update(JobTitle jobTitle);
+    Result delete(JobTitle jobTitle);
+    DataResult<List<JobTitle>> findAll();
 }

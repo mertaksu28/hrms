@@ -3,6 +3,9 @@ package javakamp.hrms.entities.concretes;
 import java.sql.Date;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,9 +26,11 @@ public class EmployeeConfirm {
 	@Column(name="employer_id")
 	private int employerId;
 	
+	@JsonIgnore
 	@Column(name="is_confirmed")
 	private Boolean isConfirmed;
 	
+	@JsonIgnore
 	@Column(name="confirmed_date")
 	private Date confirmedDate;
 	

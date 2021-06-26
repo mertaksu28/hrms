@@ -24,7 +24,7 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getAll() {
+	public DataResult<List<JobAdvertisement>> findAll() {
 		return new SuccessDataResult<List<JobAdvertisement>>
 		(this.jobAdvertisementDao.findAll(), "İş İlanları Listelendi");
 	}
@@ -33,6 +33,24 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	public Result add(JobAdvertisement jobAdvertisement) {
 		this.jobAdvertisementDao.save(jobAdvertisement);
 		return new SuccessResult("İş İlanı Eklendi") ;
+	}
+
+	@Override
+	public Result update(JobAdvertisement jobAdvertisement) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result delete(JobAdvertisement jobAdvertisement) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobAdvertisement> findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

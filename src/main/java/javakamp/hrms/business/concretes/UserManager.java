@@ -20,38 +20,47 @@ public class UserManager implements UserService {
 
 	private UserDao userDao;
 
+
 	@Autowired
 	public UserManager(UserDao userDao) {
-		super();
-		this.userDao = userDao;
-	}
 
+		this.userDao = userDao;
+		
+	}
+	
 	@Override
 	public Result add(User user) {
-		userDao.save(user);
-		return new SuccessResult("Eklendi");
+		
+		this.userDao.save(user);
+		return new SuccessResult();
 	}
 
 	@Override
 	public DataResult<User> getByEmail(String email) {
-		return new SuccessDataResult<User>(this.userDao.getByEmail(email), "Emaile sahip kullanıcı listelendi");
+
+		
+		return new SuccessDataResult<User>(userDao.getByEmail(email),"getirildi");
+		
+	}
+	@Override
+	public DataResult<User> getById(int id) {
+
+		
+		var result = this.userDao.getById(id);
+		if(result==null) {
+			return new ErrorDataResult<>("Bulunamadı");
+		}
+		
+		return new SuccessDataResult<>(result,"getirildi");
+		
 	}
 
 	@Override
 	public DataResult<List<User>> getAll() {
-
-		return new SuccessDataResult<List<User>>(this.userDao.findAll(), "Kullanıcılar Getirildi");
-
+		var result = userDao.findAll();
+		return new SuccessDataResult<>(result,"Data Listelendi");
 	}
-
-	@Override
-	public DataResult<User> getById(int id) {
-		
-		var result = userDao.getById(id);
-		if (result==null) {
-			return new ErrorDataResult<User>("Kullanıcı bulunamadı");
-		}
-		return new SuccessDataResult<User>(result, "İd ye sahip kullanıcı görüntülendi");
-	}
+	
+	
 
 }

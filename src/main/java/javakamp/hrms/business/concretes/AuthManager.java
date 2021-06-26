@@ -87,12 +87,12 @@ public class AuthManager implements AuthService {
 
 		JobCandidate jobcandidate = modelMapper.map(jobCandidateRegisterDto, JobCandidate.class);
 
-		var result = this.jobCandidateService.add(jobcandidate); 
+		var result = this.jobCandidateService.add(jobcandidate);
 
 		if (result.isSuccess()) {
 
 			this.generateVerificationCode(jobcandidate.getId());
-			return new SuccessResult("Eklendi");
+			return new SuccessResult("Kayıt gerçekleşti");
 
 		}
 		return new ErrorResult(result.getMessage());
@@ -103,6 +103,7 @@ public class AuthManager implements AuthService {
 	public DataResult<User> login(UserLoginDto userForLoginDto) {
 		var userToCheck = userService.getByEmail(userForLoginDto.getEmail());
 
+		
 		if (userToCheck.getData() == null) {
 			return new ErrorDataResult<>("Giriş yapılamadı");
 		}
@@ -185,6 +186,7 @@ public class AuthManager implements AuthService {
 			JobCandidate jobcandidate = this.jobCandidateService.getById(user_id).getData();
 
 			jobcandidate.setIsEmailVerified(true);
+			jobcandidate.setIsActive(true);
 
 			this.jobCandidateService.update(jobcandidate);
 
@@ -201,6 +203,7 @@ public class AuthManager implements AuthService {
 			Employer employer = this.employerService.findById(user_id).getData();
 
 			employer.setIsEmailVerified(true);
+			employer.setIsActive(true);
 
 			this.employerService.update(employer);
 
@@ -218,7 +221,6 @@ public class AuthManager implements AuthService {
 
 		return true;
 	}
-
 }
 
 
