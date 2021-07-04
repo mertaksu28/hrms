@@ -1,12 +1,14 @@
 package javakamp.hrms.api.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,7 @@ import javakamp.hrms.core.utulities.results.Result;
 
 @RestController
 @RequestMapping("/api/users") 
+@CrossOrigin
 public class UsersController {
 
 	private UserService userService;
@@ -32,6 +35,11 @@ public class UsersController {
 	public UsersController(UserService userService) {
 		super();
 		this.userService = userService;
+	}
+	
+	@PostMapping("/getall")
+	public DataResult<List<User>> getAll() {
+		return this.userService.getAll();
 	}
 
 	@PostMapping("/add")

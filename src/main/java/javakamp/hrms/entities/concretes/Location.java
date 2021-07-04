@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="locations")
+@Table(name="cities")
 public class Location {
 	
 	@Id
@@ -27,27 +27,27 @@ public class Location {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="country_name")
-	private String countryName;
+//	@Column(name="country_name")
+//	private String countryName;
 	
 	@Column(name="city_name")
 	private String cityName;
-	
-	@Column(name="region_name")
-	private String regionName;
-	
-	@Column(name="street_address")
-	private String streetAddress;
-	
-	@Column(name="postal_code")
-	private String postalCode;
-	
-	@Column(name="create_date")
-	@JsonIgnore
-	private LocalDate createDate;
-	
-	@Column(name="is_active", columnDefinition = "boolean default false") 
-	@JsonIgnore
-	private Boolean isActive;
-
+//	
+//	@Column(name="region_name")
+//	private String regionName;
+//	
+//	@Column(name="street_address")
+//	private String streetAddress;
+//	
+//	@Column(name="postal_code")
+//	private String postalCode;
+//	
+//	@Column(name="create_date")
+//	@JsonIgnore
+//	private LocalDate createDate;
+//	
+//	@Column(name="is_active", columnDefinition = "boolean default false") 
+//	@JsonIgnore
+//	private Boolean isActive;
+//
 }
