@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -63,5 +64,13 @@ public class JobAdvertisement {
 	@Column(name = "is_active")
 	@JsonIgnore
 	private Boolean isActive;
+	
+	@ManyToOne()
+    @JoinColumn(name = "work_type_id")
+    private WorkType workType;
+
+    @ManyToOne()
+    @JoinColumn(name = "working_time_id")
+    private WorkingTime workingTime;
 
 }
