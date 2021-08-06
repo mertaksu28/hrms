@@ -73,4 +73,7 @@ public class JobAdvertisement {
     @JoinColumn(name = "working_time_id")
     private WorkingTime workingTime;
 
+    @Column(name="is_confirmed")
+    private boolean isConfirmed;
+
 }

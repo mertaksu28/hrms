@@ -11,7 +11,8 @@ public interface JobAdvertisementService {
 	
 	Result add(JobAdvertisement jobAdvertisement);
     Result update(JobAdvertisement jobAdvertisement);
-    Result delete(JobAdvertisement jobAdvertisement);
-    DataResult<JobAdvertisement> findById(int id);
+    Result delete(int id);
+    DataResult<List<JobAdvertisement>> findById(int id);
     DataResult<List<JobAdvertisement>> findAll();
+	Result confirmed(int id);
 }

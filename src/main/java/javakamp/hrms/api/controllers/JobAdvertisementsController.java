@@ -35,5 +35,10 @@ public class JobAdvertisementsController {
 	public Result add(JobAdvertisement jobAdvertisement) {
 		return this.adveJobAdvertisementService.add(jobAdvertisement);
 	}
+	
+	@PostMapping("/confirmed")
+	public Result confirmed(int id) {
+		return this.adveJobAdvertisementService.confirmed(id);
+	}
 
 }

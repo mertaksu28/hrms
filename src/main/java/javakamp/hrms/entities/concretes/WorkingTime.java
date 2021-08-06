@@ -33,9 +33,5 @@ public class WorkingTime {
 	@Column(name = "working_time_name")
 	private String workingTimeName;
 
-	@OneToMany(mappedBy = "workingTime")
-	private List<JobAdvertisement> jobAdvertisement;
-
-
 
 }
